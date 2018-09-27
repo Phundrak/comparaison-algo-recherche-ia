@@ -1,4 +1,4 @@
-pub const MAX: usize = 100;
+pub const MAX: usize = 80;
 pub static WINSTATE: [usize; 9] = [1, 2, 3, 4, 5, 6, 7, 8, 0];
 
 pub fn at(x: usize, y: usize) -> usize {
