@@ -1,6 +1,7 @@
 pub mod dls;
 pub mod ids;
 pub mod movements;
+pub mod bfs;
 
 static INIT: [usize; 9] = [1, 2, 3, 4, 0, 5, 6, 7, 8];
 
@@ -9,7 +10,24 @@ use std::time::Instant;
 
 fn main() {
     test_dls();
+    test_bfs();
     test_ids();
+}
+
+fn test_bfs() {
+    let now = Instant::now();
+    let res = bfs::bfs(INIT);
+    let end = Instant::now();
+    if res.len() > 0 {
+        println!("Solution trouvée en {} coups :", res.len());
+        for c in res {
+            print!("{}", c);
+        }
+        println!("");
+    } else {
+        println!("Pas de solution trouvée");
+    }
+    println!("fonction exécutée en {:?}", end.duration_since(now));
 }
 
 fn test_dls() {
