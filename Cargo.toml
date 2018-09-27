@@ -1,0 +1,7 @@
+[package]
+name = "tp-2018-09-26"
+version = "0.1.0"
+authors = ["Phuntsok Drak-pa <phundrak@phundrak.fr>"]
+edition = "2018"
+
+[dependencies]
