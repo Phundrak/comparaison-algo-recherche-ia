@@ -1,7 +1,7 @@
-#[path = "./movements.rs"]
-pub mod movements;
 #[path = "./helpers.rs"]
 pub mod helpers;
+#[path = "./movements.rs"]
+pub mod movements;
 
 use crate::dls::helpers::*;
 

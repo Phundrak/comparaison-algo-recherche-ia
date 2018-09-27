@@ -1,7 +1,7 @@
+pub mod bfs;
 pub mod dls;
 pub mod ids;
 pub mod movements;
-pub mod bfs;
 
 static INIT: [usize; 9] = [1, 2, 3, 4, 0, 5, 6, 7, 8];
 
@@ -55,7 +55,7 @@ fn test_ids() {
     unsafe {
         println!("Solution trouvée en {} coups!", ids::SOLSIZE);
         for i in 0..ids::SOLSIZE {
-            print!("{}", res.unwrap_or(['N';MAX])[i]);
+            print!("{}", res.unwrap_or(['N'; MAX])[i]);
         }
         println!("");
     }
