@@ -1,7 +1,9 @@
-#[path = "../movements/mod.rs"]
+#[path = "./movements.rs"]
 pub mod movements;
-use crate::movements::helpers::*;
-use crate::movements::*;
+#[path = "./helpers.rs"]
+pub mod helpers;
+
+use crate::dls::helpers::*;
 
 pub static mut SOLSIZE: usize = 0;
 

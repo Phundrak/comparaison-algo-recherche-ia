@@ -1,8 +1,9 @@
-#[path = "../movements/mod.rs"]
+#[path = "./movements.rs"]
 pub mod movements;
+#[path = "./helpers.rs"]
+pub mod helpers;
 
-use crate::movements::helpers::*;
-use crate::movements::*;
+use crate::ids::helpers::*;
 
 pub static mut SOLSIZE: usize = 0;
 
@@ -25,7 +26,6 @@ fn dls(
     }
     let mut any_remaining = false;
     let next_states = movements::next_moves(state, history);
-    // foreach child of node
     for (new_state, move_char) in next_states {
         solution[depth] = move_char;
         let (notin, (betterval, index)) = (
@@ -39,28 +39,33 @@ fn dls(
                 history.push((new_state, depth));
             }
             let (found, remaining) = dls(new_state, depth + 1, solution, history, max);
-            if found != None {
-                return (found, true);
-            }
-            if remaining {
-                any_remaining = true;
+            match found {
+                Some(value) => return (Some(value), true),
+                _ => {
+                    if remaining {
+                        any_remaining = true;
+                    }
+                }
             }
         }
     }
-    return (None, any_remaining);
+    (None, any_remaining)
 }
 
 pub fn ids(root: [usize; 9]) -> Option<[char; MAX]> {
     for depth in 0..MAX {
         let mut solution: [char; MAX] = ['N'; MAX];
         let (found, remaining) = dls(root, 0, &mut solution, &mut Vec::new(), depth);
-        if found != None {
-            return Some(solution);
-        } else if !remaining {
-            unsafe {
-                SOLSIZE = 0;
+        match found {
+            Some(_) => return Some(solution),
+            _ => {
+                if !remaining {
+                    unsafe {
+                        SOLSIZE = 0;
+                    }
+                    return None;
+                }
             }
-            return None;
         }
     }
     return None;

@@ -1,4 +1,4 @@
-#[path = "../movements/mod.rs"]
+#[path = "./movements.rs"]
 pub mod movements;
 use crate::movements::*;
 

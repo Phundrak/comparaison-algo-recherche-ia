@@ -1,4 +1,6 @@
+#[path = "./helpers.rs"]
 pub mod helpers;
+
 use crate::movements::helpers::at;
 
 pub fn move_up(
