@@ -1,0 +1,30 @@
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                 RAPPORT COMPARAISON DE DLS, BFS ET IDS
+
+                    Lucien Cartier-Tilet et Sacha Hu
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+                               2018:09:27
+
+
+Il nous a été demandé d’implémenter et de comparer trois algorithmes de
+recherche de solution pour le jeu du taquin. Ainsi, nous avons
+implémenté DLS, BFS et IDS en Rust afin de pouvoir comparer leur temps
+d’exécution. Le code source peut être trouvé en ligne à l’adresse
+suivante : [https://github.com/Phundrak/comparaison-algo-recherche-ia]
+
+Suivant la profondeur maximale de recherche donnée aux algorithmes, les
+résultats peuvent varier, mais nous avons remarqué que l’algorithme DLS
+seul donne souvent un résultat plus lentement que IDS qui lui-même est
+plus lent que BFS. En effet, à titre d’exemple, nous avons pour résultat
+une solution à 79 coups trouvée en 229ms environ avec DLS seul, une
+solution en 18 coups trouvée en 31ms environ avec IDS et une solution en
+16 coups trouvée en 17ms environ lorsque le code est compilé en release
+et est exécuté sur un Intel i7-6700HQ (3.5GHz).
+
+Il semblerait que l’algorithme BFS soit l’algorithme optimal afin de
+trouver rapidement une solution efficace au jeu du taquin comparé aux
+deux autres algorithmes. Il est en tout cas clair que la solution de
+l’algorithme DLS seul est très peu efficace et est proposée beaucoup
+trop lentement.
